@@ -1,0 +1,503 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahya Shahen's Engineering Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Fade-in animation for content sections */
+        @keyframes fadeInContent {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-content {
+            animation: fadeInContent 0.6s ease-out forwards;
+        }
+
+        /* Landing page animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* Dynamic Gradient Background for Landing Page */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient-background {
+            background: linear-gradient(-45deg, #D3D3D3, #C0C0C0, #A9A9A9, #808080); /* Gradient with shades of grey */
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans text-gray-900 bg-[#D3D3D3]">
+
+    <div id="app-root" class="min-h-screen"></div>
+
+    <script>
+        // Data for the portfolio sections and projects
+        const portfolioData = {
+            about: {
+                title: "About Me",
+                fullContent: `Hello, I am Yahya Shahen. This is my Engineering Portfolio. Before we dive into my projects and work, I’d like to share a few words about myself, who I am, why I study engineering, and why I work on those projects you’ll find in the pages ahead.
+
+                As of writing this, I am a final year Mechanical Engineering bachelor’s student in Hungary, Partnerships coordinator and Mechanical Engineer for my university’s tech lab team, and an Engineering Intern in Marmi Construction and Engineering in Doha, Qatar, where I work on-site in HVAC and MEP systems.
+
+                To me, engineering is far more than a diploma. It is the ability to build any ambitious idea that comes to mind, whether that be for the sake of improving lives, simplifying complex works, or for the sake of art, nostalgia or curiosity. To be able to freely bring any idea of my interests to life, I need to master mechanical, electrical and software aspects of engineering, along with social aspects, communication skills and ease of finding learning sources and more soft and hard skills. This is what pushes me to keep developing myself and improving until no task is too difficult.
+
+                My goal is to become someone people can rely on in all cases engineering and even outside of it, to be able to conquer any task at hand whether related to my field or outside it. This leads to many variations within my experiences, projects, and skills. This mindset leads to many of the projects you will see in this portfolio, in which I have chosen to show a set of my larger and more impactful projects worth noting. Some are currently still a Work in Progress, others are completed. I hope you find the joy and interest of reviewing these projects as I had, working on them.`,
+                signature: "Thank you, Yahya Shahen",
+                signatureImageUrl: "https://www.prometheanworks.com/projects/image020.png" // Placeholder for signature image
+            },
+            projects: [
+                {
+                    id: "escrima",
+                    title: "PROJECT ESCRIMA",
+                    category: "featured",
+                    objective: "A fictional project made in real life, A high voltage steel staff used by ‘Robin’ from DC comics. The goal was to make it accurate with steel and real electric capabilities. This project fueled my ambition to start personal projects.",
+                    shortDescription: "A high voltage steel staff, accurately designed and functional, inspired by DC Comics.",
+                    process: "Designed in Inventor & Fusion360 and CNC-machined from 33.7x2.65 mm steel tubing. Internal chamber houses a high-voltage discharge unit and safety interlock switch. Light diffuser was 3D-printed in transparent PLA. Final assembly was soldering circuits. Other components were snap fit.",
+                    results: "Successfully delivered a functional and visually accurate high-voltage staff. The design generated attention online and leading to custom commissions and remake requests.",
+                    skills: ["CAD modeling", "CAM software", "Mechanical assembly", "Circuitry"],
+                    tools: ["Autodesk Inventor", "Fusion 360", "CNC milling", "3D printing", "Soldering"],
+                    imageUrl: "https://www.prometheanworks.com/projects/image56.jpg", // Used for overview card
+                    imageUrls: [ // New array for detailed view
+                        "https://www.prometheanworks.com/projects/image024.jpg",
+                        "https://www.prometheanworks.com/projects/image022.jpg",
+                        "https://www.prometheanworks.com/projects/image023.jpg"
+                    ]
+                },
+                {
+                    id: "timepiece",
+                    title: "PROJECT TIMEPIECE v2",
+                    category: "featured",
+                    objective: "A self-directed project and my second completed timepiece. This watch combined my personal interest in horology and timepieces, with a desire to improve experience in micromechanics, precision fitting, and gear assemblies. The goal was to model and build a fully functional watch based on my own design, including custom logo detailing.",
+                    shortDescription: "A self-designed and built functional watch, focusing on micromechanics and precision.",
+                    process: "Firstly, A budget and a cost analysis sheet was produced. Overall material cost was Є900. I made connections with companies for custom made leather, polished case etc. I used a damaged ETA2824-2 Swiss movement which I repaired. I learned and used Adobe Illustrator for the Logo design. Lastly, grinding, assembly and hand painting of Logo was done.",
+                    results: "The watch was not only visually refined, but also mechanically precise with +/- 8 seconds per day. This watch had piqued the interest of watch enthusiast some who inquired custom commissions. Additionally, the project helps me build connections with leather artisans and Swiss movement suppliers.",
+                    skills: ["Micromechanical assembly", "Movement regulation", "Collaboration and Networking", "Design branding and identity"],
+                    tools: ["ETA2824-2 movement", "watchmaking tools", "Adobe illustrator"],
+                    imageUrl: "https://www.prometheanworks.com/projects/image034.png",
+                    imageUrls: [
+                        "https://www.prometheanworks.com/projects/image030.png",
+                        "https://www.prometheanworks.com/projects/image031.png",
+                        "https://www.prometheanworks.com/projects/image034.png"
+                    ]
+                },
+                {
+                    id: "aws-blackbox",
+                    title: "PROJECT AWS BLACKBOX",
+                    category: "featured",
+                    objective: "This project was for a tech competition. The task was to create an Amazon Web Service cloud-based application that can receive, read and present automotive CAN bus data, using only free tier services which was essentially a process of building a ‘Blackbox’ for land vehicles.",
+                    shortDescription: "A cloud-based application for receiving, reading, and presenting automotive CAN bus data.",
+                    process: "Designed the original architecture and flow of data, then improved it to increase efficiency. Designed a simple upload HTML page for the front-end to upload the CAN data. Designed the Backend which uses a DBC file stored in S3 bucket, uploaded CAN data and python Cantools to a .json file. A DynamoDB database is generated for each upload. Then processed via Plotly+Dash into an output frontend Dashboard. The entire application works within an EC2 Instance.",
+                    results: "Developed a fully integrated cloud application that runs decoding, database creation and visualization in a single EC2-hosted app. Created a live dashboard view served on a browser. System was demonstrated and tested live, giving us a successful task point.",
+                    skills: ["Cloud architecture", "backend automation", "database integration"],
+                    tools: ["Python", "Flask", "Docker", "AWS EC2", "DynamoDB", "S3", "cantools", "Plotly", "Dash", "HTML"],
+                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/768px-Amazon_Web_Services_Logo.svg.png",
+                    imageUrls: [
+                        "https://www.prometheanworks.com/projects/image037.png",
+                        "https://www.prometheanworks.com/projects/image036.png",
+                        "https://www.prometheanworks.com/projects/image038.png"
+                    ]
+                },
+                {
+                    id: "blind-spot",
+                    title: "PROJECT BLIND-SPOT",
+                    category: "featured",
+                    objective: "This project was part of a national traffic safety competition. The idea proposed was to develop a low-cost, retrofit blind spot detection system for older vehicles, especially trucks. Many of these vehicles lack modern safety features, making blind spot collisions a serious hazard for pedestrians, cyclists, and other drivers.",
+                    shortDescription: "A low-cost, retrofit blind spot detection system for older vehicles, particularly trucks.",
+                    process: "We designed and built a fully functional miniature truck model using 3D printing. The system uses 9 ultrasonic sensors positioned around the front, rear, and sides of the truck. These are connected to an Arduino Mega that processes distance data and activates corresponding LED indicators to show blind spot activity. The wiring layout was simulated in Fritzing, and the prototype was tested using real objects within the detection range. Red LEDs were used to provide clear visual feedback to the driver.",
+                    results: "The system performed reliably and earned 3rd place in the national competition. It demonstrated effective blind spot detection at an estimated cost of just 20 Euros. Future upgrades include wireless connectivity and under-vehicle sensing.",
+                    skills: ["Sensor integration", "Rapid prototyping", "3D modeling", "circuit design", "3D printing", "basic C programming"],
+                    tools: ["Arduino Mega", "Fritzing", "Fusion 360", "Ultrasonic sensors", "3D printer", "LEDs"],
+                    imageUrl: "https://www.prometheanworks.com/projects/yahya_front.jpg",
+                    imageUrls: [
+                        "https://www.prometheanworks.com/projects/image044.jpg",
+                        "https://www.prometheanworks.com/projects/image045.jpg",
+                        "https://www.prometheanworks.com/projects/image043.jpg"
+                    ]
+                },
+                {
+                    id: "swarm",
+                    title: "PROJECT SWARM (WIP)",
+                    category: "advanced",
+                    objective: "This project is based on using Generative Design modeling to create and simulate and create the most optimal (mass to strength) metal 3d printed drone. The project is still a work in progress.The goal in mind is to create a set of highly optimized drones that can operate in a swarm with 1 leading drone and the other drones in an offset distance from it. This project is currently on pause until I can fund multiple drones and sensors.",
+                    shortDescription: "Ongoing project on optimizing metal 3D printed drone design using generative design.",
+                    imageUrl: "https://www.prometheanworks.com/projects/image051.png",
+                    imageUrls: [
+                        "https://www.prometheanworks.com/projects/image050.png",
+                        "https://www.prometheanworks.com/projects/image051.png",
+                        "https://www.prometheanworks.com/projects/yahya_3dprint.JPG"
+                    ]
+                },
+                {
+                    id: "karen",
+                    title: "Project Karen (WIP)",
+                    category: "advanced",
+                    objective: "The objective of this project is to bring a classic cartoon character back as an AI assistant for our laboratory. An old square monitor left in the laboratory would be used as Karen’s head, the mount and pipe for the neck have already been completed via sheet metal and a steel pipe. All accessories are to be 3d printed with multicolor PLA, like the bottom plate and the large back of the monitor to make it look like an old TV. The software is still a Work- in-progress. The plan is to use a raspberry pi with Linux, integrating OpenAI, OpenWakeWord, Whisper, TTS, pygame and whichever other addons deemed necessary.",
+                    shortDescription: "Developing an AI assistant inspired by a classic cartoon character for a laboratory setting.",
+                    imageUrl: "https://www.prometheanworks.com/projects/image052.png",
+                    imageUrls: [
+                        "https://www.prometheanworks.com/projects/image052.png"
+                    ]
+                },
+                {
+                    id: "cybersecurity-courses",
+                    title: "CYBERSECURITY COURSES (WIP)",
+                    category: "advanced",
+                    objective: "This is less of a project and more of a goal, as a side hobby. I have been working on cybersecurity courses via HackTheBox. As of today, the goal is to receive my first cybersecurity certification. Although it is a niche outside of my Mechanical Engineering works, Cybersecurity has caught my attention as a highly under evaluated yet extremely crucial aspect of any type of startup and growing company. I am specifically aiming for CBBH( Certified Bug Bounty Hunter). In the future I plan to continue to CJCA( Certified Junior Cybersecurity Associate) and CPTS ( Certified Penetration Testing Specialist). As for writing this, I am 40% completed with my CBBH certificate and plan to take the examination in September 2025.",
+                    shortDescription: "Pursuing cybersecurity certifications, currently working towards Certified Bug Bounty Hunter (CBBH).",
+                    imageUrl: "https://avatars.githubusercontent.com/u/31746234?s=200&v=4",
+                    imageUrls: [
+                        "https://www.prometheanworks.com/projects/image054.png"
+                    ]
+                },
+                {
+                    id: "adaptive-control",
+                    title: "ADAPTIVE CONTROL IN MILLING MACHINES – THESIS RESEARCH",
+                    category: "field and research",
+                    objective: `I have chosen Adaptive Control in CNC Milling machines as my thesis research for my bachelor's degree. There are multiple reasons behind my choice for this specific topic. Firstly, Manufacturing technologies specialization is one of my strongest suits, and the manufacturing industry is one of the most intriguing industries for me. I also find that this topic tackles a genuine problem in the manufacturing industry, which is the loss of time ,inconsistency of surface quality, and lower tool life, that arises from a constant feedrate motion, since feedrate is usually chosen by operators based on tool recommendations from the catalogue and are usually to remain constant throughout the machining process, meaning that areas in the workpiece that may allow for a potentially faster feedrate are not utilized to save time, and areas that may require a lower feedrate risk surface and tool damage.`,
+                    thesisTopic: `The goal of this Thesis topic is to investigate and integrate Adaptive Control in our university CNC milling machine. The machine should be able to detect tool breakage or malfunction and make decisions based on multiple factors. The decisions may range from automatically switching to a sister tool, to stopping machining and notifying the user. The possible solutions should be coded to the G-code, and it must prove this solution can work under real conditions. Based on the deeper knowledge of programming, other optimalization questions can take into account like surface quality and tool lifetime, or feed rate, cut depth, force and vibration, etc.`,
+                    tasksAndSubtasks: [
+                        "1. Literature review",
+                        "1.1 Methods of determining, extracting and computing machining data from Milling Machines.",
+                        "1.2 Literature review, on optimizing tool life cycle, federate, and surface quality.",
+                        "2. Integrating limited adaptive control and testing phase.",
+                        "3. Comparison of theory and practical, filling the gaps, and extending the possible solutions.",
+                        "4. Summary of Results gained."
+                    ],
+                    shortDescription: "Thesis research on implementing adaptive control in CNC milling machines to optimize manufacturing processes.",
+                    imageUrl: "https://www.prometheanworks.com/projects/image54.png",
+                    imageUrls: [] // No specific images provided for this project
+                },
+                {
+                    id: "eco-friendly-battery",
+                    title: "ECO FRIENDLY BATTERY – SCIENTIFIC STUDENT CONFERENCE RESEARCH",
+                    category: "field and research",
+                    objective: "This research was my first attendance as a speaker at a scientific student conference. Although deadlines were short and time for research was limited. The project was finalized into a proof of concept for a functional battery.",
+                    shortDescription: "Proof-of-concept for a functional, eco-friendly graphite-based battery.",
+                    abstract: "Title: \"The Fabrication of a nontoxic graphite-based battery\" Abstract: This research presents the fabrication of a novel; eco-friendly graphite-based battery; utilizing expanded graphite as the primary anode material. Expanded graphite, known for its excellent thermal stability and sealing properties, is conventionally used in applications where heat resistance is crucial. In this study, the graphite’s expanded form is repurposed to function as the anode, a role it similarly serves in lithium-ion batteries. The primary goal of this battery is to offer improved thermal stability while employing sustainable, naturally occurring materials to enhance environmental compatibility. The cathode materials under consideration include chitosan, a common waste byproduct from the fishing industry, and hematite chrome oxide. Hematite chrome oxide is positively charged, which may make it a strong candidate for cathode applications, while chitosan offers the advantage of transforming waste into useful components, thus contributing to the battery’s eco-friendly profile. The filling materials, primarily graphite powder, have been selected for their high conductivity and thermal stability. Alternative filler materials, suchs as mica, quartz, and magnetite, are also explored for their potential to enhance performance. Electrolyte options being studied include formic acid, lactic acid, and potassium iodide or Betadine. While all options present promising possibilities. This novel design is compared with conventional lithium-ion and alkaline batteries, with a particular focus on the improvements in thermal stability and environmental sustainability. While lithium-ion batteries rely heavily on finite and often hazardous materials, this new graphite-based battery seeks to mitigate such concerns by using naturally abundant and less toxic alternatives. The proposed battery’s enhanced thermal performance, combined with its focus on eco-friendliness, positions it as a promising alternative to traditional batteries, particularly in applications requiring long-term stability under extreme temperature conditions. Further research will refine material choices and optimize performance metrics, advancing the potential for sustainable energy storage solutions.",
+                    imageUrl: "https://www.prometheanworks.com/projects/image058.jpg",
+                    imageUrls: [
+                        "https://www.prometheanworks.com/projects/image057.png",
+                        "https://www.prometheanworks.com/projects/image058.jpg",
+                        "https://www.prometheanworks.com/projects/image059.jpg"
+                    ]
+                },
+                {
+                    id: "marmi-quality-control",
+                    title: "MARMI QUALITY CONTROL AND INSPECTION (WIP)",
+                    category: "field and research",
+                    objective: "My most recent work was in MEP, HVAC and overall construction. The goal of this internship was to diversify my applications as a mechanical engineer since the middle east, especially Qatar, where my family resides, does not have a strong industrial presence and instead focuses its engineers on Construction works. I worked as a site engineer for Marmi Engineering. I worked mainly on large tower projects but still had restaurants and showrooms in my scope. This gave me many diverse tasks, including quality control of all FCU units, inspection works for functionality of water pipes, and irrigation pumps, maintenance and testing for fire systems, measurements and CAD for comparisons between shop drawings and as-built drawings, cost analysis for other towers via site inspection to determine what is damaged and what is still pending, drafting client contracts as per QCS standard and more. I worked there for 3 months. It was a very beneficial learning experience and gave me the expertise required to work and excel in construction for countries that lack a strong industrial field.",
+                    shortDescription: "Internship focusing on MEP, HVAC, and construction quality control and inspection.",
+                    imageUrl: "https://www.prometheanworks.com/projects/image070.jpg",
+                    imageUrls: [
+                        "https://www.prometheanworks.com/projects/image069.png",
+                        "https://www.prometheanworks.com/projects/image070.jpg",
+                        "https://www.prometheanworks.com/projects/image071.png"
+                    ]
+                }
+            ]
+        };
+
+        let activeSection = 'landing'; // 'landing', 'about', 'projects'
+        let selectedProject = null;
+        let prevScrollPosition = 0;
+
+        function renderApp() {
+            const appRoot = document.getElementById('app-root');
+            appRoot.innerHTML = ''; // Clear existing content
+
+            if (activeSection === 'landing') {
+                appRoot.className = "min-h-screen flex flex-col items-center justify-center text-center p-6 animated-gradient-background";
+                appRoot.innerHTML = `
+                    <img
+                        src="https://www.prometheanworks.com/projects/image55.png"
+                        alt="Your Personal Photo"
+                        class="rounded-lg w-56 h-72 object-cover mb-8 shadow-lg animate-fade-in-down delay-100"
+                        onerror="this.onerror=null;this.src='https://placehold.co/224x288/D3D3D3/3730A3?text=Your+Photo';"
+                    />
+                    <h1 class="text-6xl font-extrabold text-indigo-900 mb-6 animate-fade-in-down delay-200">
+                        Yahya Shahen
+                    </h1>
+                    <p class="text-2xl text-gray-700 mb-2 max-w-2xl animate-fade-in delay-300">
+                        Hi, my name is Yahya Shahen and this is where I publish my most notable projects. Whether you stumbled upon this from my socials, CV, or even a Google search.
+                    </p>
+                    <p class="text-2xl text-gray-700 mb-10 max-w-2xl animate-fade-in delay-400">
+                        I hope you find the same joy viewing this as I did building it.
+                    </p>
+                    <div class="flex justify-center space-x-8 animate-fade-in delay-500">
+                        <button id="about-me-button" class="px-8 py-3 bg-indigo-700 text-white text-xl font-semibold rounded-full shadow-lg hover:bg-indigo-800 transform hover:scale-105 transition duration-300 ease-in-out">
+                            About Me
+                        </button>
+                        <button id="view-portfolio-button" class="px-8 py-3 bg-purple-700 text-white text-xl font-semibold rounded-full shadow-lg hover:bg-purple-800 transform hover:scale-105 transition duration-300 ease-in-out">
+                            View Portfolio
+                        </button>
+                    </div>
+                    <div class="flex justify-center space-x-6 mt-16 animate-fade-in delay-600">
+                        <a href="https://www.instagram.com/yahyashahen234/?hl=en" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition duration-300 text-4xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yahya-shahen-4370aa233/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition duration-300 text-4xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:Yahyashahen234@gmail.com" class="text-indigo-600 hover:text-indigo-800 transition duration-300 text-4xl">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                `;
+                document.getElementById('about-me-button').onclick = () => { activeSection = 'about'; selectedProject = null; renderApp(); };
+                document.getElementById('view-portfolio-button').onclick = () => { activeSection = 'projects'; selectedProject = null; renderApp(); };
+
+            } else {
+                appRoot.className = "min-h-screen bg-[#D3D3D3] font-sans text-gray-900";
+                appRoot.innerHTML = `
+                    <div class="container mx-auto flex items-center py-8 px-6">
+                        <div class="flex-grow"></div>
+                        <div class="flex justify-center space-x-8">
+                            <button id="nav-about-me" class="px-6 py-2 rounded-lg font-semibold text-lg transition duration-300 shadow-md ${activeSection === 'about' ? 'bg-indigo-600 text-white' : 'bg-[#D3D3D3] text-indigo-700 hover:bg-gray-100'}">
+                                About Me
+                            </button>
+                            <button id="nav-my-projects" class="px-6 py-2 rounded-lg font-semibold text-lg transition duration-300 shadow-md ${activeSection === 'projects' ? 'bg-indigo-600 text-white' : 'bg-[#D3D3D3] text-indigo-700 hover:bg-gray-100'}">
+                                My Notable Projects
+                            </button>
+                        </div>
+                        <div class="flex-grow flex justify-end">
+                            <button id="nav-home" class="px-4 py-1.5 rounded-lg font-semibold text-base transition duration-300 shadow-md bg-[#D3D3D3] text-gray-700 hover:bg-gray-100">
+                                Home
+                            </button>
+                        </div>
+                    </div>
+                    <main id="main-content" class="container mx-auto px-6 py-4 animate-fade-in-content"></main>
+                    <footer class="bg-[#D3D3D3] text-gray-800 py-8 text-center rounded-t-xl">
+                        <p>&copy; ${new Date().getFullYear()} Yahya Shahen. All rights reserved.</p>
+                        <p class="text-sm mt-2">Portfolio created with HTML, JavaScript and Tailwind CSS</p>
+                        <div class="flex justify-center space-x-6 mt-4">
+                            <a href="https://www.instagram.com/yahyashahen234/?hl=en" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition duration-300 text-3xl">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/yahya-shahen-4370aa233/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition duration-300 text-3xl">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:Yahyashahen234@gmail.com" class="text-indigo-600 hover:text-indigo-800 transition duration-300 text-3xl">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </footer>
+                `;
+
+                document.getElementById('nav-about-me').onclick = () => { activeSection = 'about'; selectedProject = null; renderApp(); };
+                document.getElementById('nav-my-projects').onclick = () => { activeSection = 'projects'; selectedProject = null; renderApp(); };
+                document.getElementById('nav-home').onclick = () => { activeSection = 'landing'; selectedProject = null; renderApp(); };
+
+                const mainContent = document.getElementById('main-content');
+                if (activeSection === 'about') {
+                    mainContent.innerHTML = `
+                        <section id="about" class="bg-[#D3D3D3] p-8 rounded-xl shadow-lg mb-16">
+                            <h2 class="text-4xl font-extrabold text-indigo-900 mb-6 text-center">
+                                ${portfolioData.about.title}
+                            </h2>
+                            ${portfolioData.about.fullContent.split('\n\n').map(p => `<p class="text-lg text-gray-800 leading-relaxed max-w-3xl mx-auto text-center mb-4">${p.trim()}</p>`).join('')}
+                            <p class="text-lg text-gray-800 leading-relaxed max-w-3xl mx-auto text-center mt-4">
+                                ${portfolioData.about.signature}
+                            </p>
+                            <div class="text-center mt-8 flex justify-end max-w-3xl mx-auto">
+                                <img
+                                    src="${portfolioData.about.signatureImageUrl}"
+                                    alt="Your Signature"
+                                    class="block w-40 h-auto rounded-lg shadow-sm"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/150x50/D3D3D3/3730A3?text=Your+Signature';"
+                                />
+                            </div>
+                            <div class="flex justify-center space-x-6 mt-12">
+                                <a href="https://www.instagram.com/yahyashahen234/?hl=en" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition duration-300 text-4xl">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/yahya-shahen-4370aa233/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition duration-300 text-4xl">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="mailto:Yahyashahen234@gmail.com" class="text-indigo-600 hover:text-indigo-800 transition duration-300 text-4xl">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </section>
+                    `;
+                } else if (activeSection === 'projects') {
+                    if (selectedProject) {
+                        // Detailed Project View
+                        let imageUrlsHtml = '';
+                        if (selectedProject.imageUrls && selectedProject.imageUrls.length > 0) {
+                            imageUrlsHtml = `
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                                    ${selectedProject.imageUrls.map((url, index) => `
+                                        <img
+                                            src="${url}"
+                                            alt="${selectedProject.title} Image ${index + 1}"
+                                            class="w-full h-48 object-contain"
+                                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/D3D3D3/3730A3?text=Image+${index + 1}';"
+                                        />
+                                    `).join('')}
+                                </div>
+                            `;
+                        }
+
+                        let projectSpecificContent = '';
+                        if (selectedProject.id === 'adaptive-control') {
+                            projectSpecificContent = `
+                                <p class="mb-4">
+                                    <span class="font-semibold text-indigo-700">Objective:</span> ${selectedProject.objective}
+                                </p>
+                                <div class="mt-6">
+                                    <p class="mb-2">
+                                        <span class="font-semibold text-indigo-700">Topic of BSc Thesis:</span>
+                                    </p>
+                                    <p>${selectedProject.thesisTopic}</p>
+                                </div>
+                                <div class="mt-6">
+                                    <p class="mb-2">
+                                        <span class="font-semibold text-indigo-700">Tasks and sub-tasks:</span>
+                                    </p>
+                                    <ul class="list-disc list-inside mt-2 space-y-1">
+                                        ${selectedProject.tasksAndSubtasks.map(task => `<li class="text-base">${task}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            `;
+                        } else {
+                            projectSpecificContent = `
+                                <p class="mb-4">
+                                    <span class="font-semibold text-indigo-700">Objective:</span> ${selectedProject.objective}
+                                </p>
+                                ${selectedProject.process ? `<p class="mb-4"><span class="font-semibold text-indigo-700">Process:</span> ${selectedProject.process}</p>` : ''}
+                                ${selectedProject.results ? `<p class="mb-4"><span class="font-semibold text-indigo-700">Results:</span> ${selectedProject.results}</p>` : ''}
+                            `;
+                        }
+
+                        mainContent.innerHTML = `
+                            <div class="bg-[#D3D3D3] p-8 rounded-xl shadow-lg mb-16">
+                                <button id="back-to-projects" class="mb-6 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    Back to Projects
+                                </button>
+                                <h2 class="text-4xl font-extrabold text-indigo-900 mb-6 text-center">${selectedProject.title}</h2>
+                                ${imageUrlsHtml}
+                                <div class="text-lg text-gray-800 leading-relaxed mt-6">
+                                    ${projectSpecificContent}
+                                </div>
+                                ${selectedProject.abstract ? `
+                                    <div class="mb-4 text-lg text-gray-800 leading-relaxed px-2 md:px-0 mt-6">
+                                        <span class="font-semibold text-indigo-700">Abstract:</span>
+                                        <p class="mt-2 text-base italic">${selectedProject.abstract}</p>
+                                    </div>
+                                ` : ''}
+                                ${selectedProject.skills && selectedProject.skills.length > 0 ? `
+                                    <div class="mt-8 text-lg text-gray-800 leading-relaxed px-2 md:px-0">
+                                        <span class="font-semibold text-indigo-700">Skills Demonstrated:</span>
+                                        <ul class="list-disc list-inside mt-2 space-y-1">
+                                            ${selectedProject.skills.map(skill => `<li class="text-base">${skill}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                ` : ''}
+                                ${selectedProject.tools && selectedProject.tools.length > 0 ? `
+                                    <div class="mt-6 text-lg text-gray-800 leading-relaxed px-2 md:px-0">
+                                        <span class="font-semibold text-indigo-700">Tools used:</span>
+                                        <ul class="list-disc list-inside mt-2 space-y-1">
+                                            ${selectedProject.tools.map(tool => `<li class="text-base">${tool}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `;
+                        document.getElementById('back-to-projects').onclick = () => {
+                            selectedProject = null;
+                            renderApp();
+                            // Scroll back to the saved position after the component re-renders
+                            setTimeout(() => {
+                                window.scrollTo(0, prevScrollPosition);
+                            }, 10);
+                        };
+                    } else {
+                        // Projects Overview
+                        let projectsHtml = `<h2 class="text-4xl font-extrabold text-indigo-900 mb-10 text-center">My Notable Projects</h2>`;
+                        const groupedProjects = portfolioData.projects.reduce((acc, project) => {
+                            if (!acc[project.category]) {
+                                acc[project.category] = [];
+                            }
+                            acc[project.category].push(project);
+                            return acc;
+                        }, {});
+
+                        for (const category in groupedProjects) {
+                            projectsHtml += `
+                                <div class="mb-12">
+                                    <h3 class="text-3xl font-bold text-indigo-800 mb-6 capitalize text-center">
+                                        ${category.replace('-', ' ')} Projects
+                                    </h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-4xl mx-auto">
+                                        ${groupedProjects[category].map(project => `
+                                            <div class="bg-[#D3D3D3] rounded-xl shadow-lg overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-2xl project-card" data-project-id="${project.id}">
+                                                <img
+                                                    src="${project.imageUrl || `https://placehold.co/600x400/D3D3D3/3730A3?text=${encodeURIComponent(project.title)}`}"
+                                                    alt="${project.title}"
+                                                    class="w-full h-48 object-contain"
+                                                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/D3D3D3/3730A3?text=Image+Not+Found';"
+                                                />
+                                                <div class="p-6">
+                                                    <h3 class="text-2xl font-bold text-indigo-800 mb-2">${project.title}</h3>
+                                                    <p class="text-gray-700 text-sm">${project.shortDescription}</p>
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        mainContent.innerHTML = projectsHtml;
+
+                        document.querySelectorAll('.project-card').forEach(card => {
+                            card.onclick = (event) => {
+                                prevScrollPosition = window.scrollY;
+                                const projectId = event.currentTarget.dataset.projectId;
+                                selectedProject = portfolioData.projects.find(p => p.id === projectId);
+                                renderApp();
+                            };
+                        });
+                    }
+                }
+            }
+        }
+
+        // Initial render when the DOM is fully loaded
+        window.onload = renderApp;
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9650d0920899a056","version":"2025.7.0","r":1,"token":"cba391d566fe4eb580958db21cb472e3","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+</body>
+</html>
